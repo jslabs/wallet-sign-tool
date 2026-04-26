@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h3>Wallet Sign Tool</h3>
+
+    <form id="form">
+
+        <label>
+            <input type="radio" name="mode" value="file" checked>
+            File
+        </label>
+
+        <input type="file" name="file">
+
+        <hr>
+
+        <label>
+            <input type="radio" name="mode" value="message">
+            Message
+        </label>
+
+        <textarea name="message"></textarea>
+
+        <hr>
+
+        <button type="submit">Sign</button>
+
+    </form>
+
+    <pre id="out"></pre>
+
+    <script type="module">
+        import { run } from "./sign.js";
+
+        document.getElementById("form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            run(window, e.target, "#out");
+        });
+    </script>
+
+</body>
+
+</html>
