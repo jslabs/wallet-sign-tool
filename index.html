@@ -17,11 +17,20 @@
         <hr>
 
         <label>
-            <input type="radio" name="mode" value="message" checked>
+            <input type="radio" name="mode" value="message">
             Message
         </label>
 
         <textarea name="message"></textarea>
+
+        <hr>
+
+        <label>
+            <input type="radio" name="mode" value="hash" checked>
+            Hash
+        </label>
+
+        <input type="text" name="hash">
 
         <hr>
 
@@ -32,7 +41,7 @@
     <pre id="out"></pre>
 
     <script type="module">
-        import { run } from "./sign.js";
+        import { run } from "./sign-hash.js";
 
         document.getElementById("form").addEventListener("submit", (e) => {
             e.preventDefault();
