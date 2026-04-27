@@ -40,12 +40,13 @@ export default {
             "schema.types.MyType.issuedAt": () => Math.floor(Date.now() / 1000)
         },
         schema: {
-            domain: { name: "example.com", version: "1", chainId: 1 },
+            domain: { name: "example.com", version: "1", chainId: 1, verifyingContract: "0xYourContractAddress" },
             types: {
                 EIP712Domain: [
-                    { name: "name",    type: "string"  },
-                    { name: "version", type: "string"  },
-                    { name: "chainId", type: "uint256" }
+                    { name: "name",              type: "string"  },
+                    { name: "version",           type: "string"  },
+                    { name: "chainId",           type: "uint256" },
+                    { name: "verifyingContract", type: "address" }
                 ],
                 MyType: [
                     { name: "wallet",   type: "address" },

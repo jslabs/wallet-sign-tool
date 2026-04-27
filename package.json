@@ -1,6 +1,6 @@
 {
   "name": "@jslabs/wallet-sign-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "EIP-191 and EIP-712 wallet signing tool",
   "type": "module",
   "engines": {
