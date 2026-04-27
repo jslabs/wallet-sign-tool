@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "outDir": "bin",
+        "rootDir": "src",
+        "declaration": false,
+        "noEmit": false
+    },
+    "include": ["src/cli.ts"]
+}

@@ -1,15 +1,60 @@
 {
-  "name": "wallet-sign-tool",
+  "name": "@jslabs/wallet-sign-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "EIP-191 and EIP-712 wallet signing tool",
   "type": "module",
-  "scripts": {
-    "start": "node server.js"
+  "engines": {
+    "node": ">=20"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "wallet-sign-tool": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "app",
+    "dist"
+  ],
+  "scripts": {
+    "start": "vite",
+    "build": "tsc -p tsconfig.cli.json && vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json"
+  },
+  "author": {
+    "name": "Sergio Montenegro",
+    "url": "https://github.com/seht"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.1.0",
     "ethers": "^6.16.0",
-    "express": "^5.2.1"
-  }
+    "vite": "^6.4.2"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jslabs/wallet-sign-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jslabs/wallet-sign-tool/issues"
+  },
+  "homepage": "https://github.com/jslabs/wallet-sign-tool#readme",
+  "keywords": [
+    "ethereum",
+    "wallet",
+    "signing",
+    "eip191",
+    "eip712",
+    "personal-sign",
+    "typed-data",
+    "metamask",
+    "ethers",
+    "cli"
+  ]
 }
