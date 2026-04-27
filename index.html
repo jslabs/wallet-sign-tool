@@ -3,36 +3,43 @@
 
 <body>
 
-    <h3>Wallet Sign Tool</h3>
+    <h3>Wallet Signing Tool</h3>
 
     <form id="form">
 
-        <label>
-            <input type="radio" name="mode" value="file">
-            File
-        </label>
+        <fieldset>
+            <legend>Signing standard</legend>
 
-        <input type="file" name="file">
+            <label>
+                <input type="radio" name="eip" value="eip191" checked>
+                EIP-191 (personal_sign)
+            </label>
 
-        <hr>
+            <label>
+                <input type="radio" name="eip" value="eip712">
+                EIP-712 (typed data)
+            </label>
+        </fieldset>
 
-        <label>
-            <input type="radio" name="mode" value="message">
-            Message
-        </label>
+        <fieldset>
+            <legend>Input</legend>
 
-        <textarea name="message"></textarea>
+            <label>
+                <input type="radio" name="mode" value="file" checked>
+                File
+            </label>
 
-        <hr>
+            <input type="file" name="file">
 
-        <label>
-            <input type="radio" name="mode" value="hash" checked>
-            Hash
-        </label>
+            <hr>
 
-        <input type="text" name="hash">
+            <label>
+                <input type="radio" name="mode" value="message">
+                Message
+            </label>
 
-        <hr>
+            <textarea name="message"></textarea>
+        </fieldset>
 
         <button type="submit">Sign</button>
 
@@ -41,7 +48,7 @@
     <pre id="out"></pre>
 
     <script type="module">
-        import { run } from "./sign-hash.js";
+        import { run } from "./signer.js";
 
         document.getElementById("form").addEventListener("submit", (e) => {
             e.preventDefault();
