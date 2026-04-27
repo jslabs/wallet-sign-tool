@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { createServer, build, preview } from "vite";
 import { Command } from "commander";
 import { resolve } from "path";
