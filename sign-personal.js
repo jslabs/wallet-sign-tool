@@ -12,14 +12,17 @@ export async function run({ document, ethereum }, form, sel) {
             throw new Error("no_wallet");
         }
 
-        let input = form.hash.value;
+        const input = form.hash.value;
+
         if (!input) throw new Error("empty_hash");
 
-        if (!input.startsWith("0x")) {
-            input = "0x" + input;
+        let hash = input;
+
+        if (!hash.startsWith("0x")) {
+            hash = "0x" + hash;
         }
 
-        if (!/^0x[0-9a-fA-F]{64}$/.test(input)) {
+        if (!/^0x[0-9a-fA-F]{64}$/.test(hash)) {
             throw new Error("invalid_bytes32_hash");
         }
 
@@ -29,13 +32,14 @@ export async function run({ document, ethereum }, form, sel) {
 
         const signature = await ethereum.request({
             method: "personal_sign",
-            params: [input, account]
+            params: [hash, account]
         });
 
         out({
             wallet: account,
-            hash: input,
-            signature
+            hash,
+            signature,
+            digestSHA256: btoa(input),
         });
 
     } catch (err) {

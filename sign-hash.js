@@ -119,7 +119,8 @@ export async function run(window, form, sel) {
             hash,
             nonce,
             issuedAt,
-            signature
+            signature,
+            digestSHA256: btoa(input),
         });
 
     } catch (err) {
